@@ -11,10 +11,10 @@ Provides a mechanism to identify users from an OAuth 2.0 Identity Server, allowi
 * Can be configured on the following PrestaShop hooks:
 	* Authentication page
 	* Registration Page
-    * Navigation Menu
-    * Left column
-    * Right column
-    * Right column product
+    	* Navigation Menu
+    	* Left column
+    	* Right column
+    	* Right column product
 * Can be added to any _Smarty_ template files be means of a custom hook (`{$HOOK_OASSO_CUSTOM nofilter}`).
 * Supports shop front customization by adding custom CSS and Custom JavaScript.
 * Supports **role mapping** (user's roles provided by the Identity Server can be mapped to PrestaShop customer groups, wich allow to implement these roles on your shop).
