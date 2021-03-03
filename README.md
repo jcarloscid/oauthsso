@@ -15,16 +15,16 @@ Provides a mechanism to identify users from an OAuth 2.0 Identity Server, allowi
 	* Left column
 	* Right column
 	* Right column product
-* Can be added to any _Smarty_ template files be means of a custom hook (`{$HOOK_OASSO_CUSTOM nofilter}`).
-* Supports shop front customization by adding custom CSS and Custom JavaScript.
-* Supports **role mapping** (user's roles provided by the Identity Server can be mapped to PrestaShop customer groups, wich allow to implement these roles on your shop).
-* Allows to send notifications to administrators and/or customers.
+* Can be added to any _Smarty_ template files by means of a custom hook (`{$HOOK_OASSO_CUSTOM nofilter}`).
+* Supports shop front customization by adding custom CSS and custom JavaScript.
+* Supports **role mapping** (user's roles provided by the Identity Server can be mapped to PrestaShop customer groups, which allows to implement these roles on your shop).
+* Allows to send notifications to administrators and/or customers when a new customer is registered via SSO.
 * Supports **account linking** (users coming from the Identity Server can be linked to existing customers on your shop by means of their email address).
 * Supports registration data validation (confirm new customers data).
 
 ## Install and configure
 
-Install as any other module on PrestaShop using the file `oauthsso.zip`. 
+Install as any other module on PrestaShop using the file `oauthsso.zip`.
 
 Click on **Configure** after installing the module. Read the explanations on the admin panel to understand how to configure the module.
 
@@ -74,11 +74,11 @@ Hints to customize the aspect of the OAuth 2.0 Single SignOn widget:
 
 ## Emails' subjects translations
 
-As of _PrestaShop 1.7.7.1_ custom emails' subjects cannot be translated by means of the admin tools. However, translation can be done by directly modifying some source files on your theme's folder structure.
+As of _PrestaShop 1.7.7.1_ custom emails' subjects cannot be translated by means of the admin tools. However, translation can be performed by directly modifying some source files inside your theme's folder structure.
 
-Please see instructions and sample code on `/translations/es-lang.php` if you are familiar with code customizations.
+If you are familiar with code customizations, please see instructions and sample code on `/translations/es-lang.php`.
 
-## License 
+## License
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
