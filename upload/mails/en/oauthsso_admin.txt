@@ -1,0 +1,13 @@
+Hi {firstname} {lastname},
+
+A new customer has registered into {shop_name} using OAuth 2.0 Single SignOn Client.
+
+Customer details:
+
+Identifier: {identifier}
+First Name: {user_first_name}
+Last Name: {user_last_name}
+E-mail address: {user_email}
+Provider: {provider}
+
+{shop_url} powered by PrestaShop™

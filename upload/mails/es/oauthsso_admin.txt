@@ -1,0 +1,13 @@
+Hola {firstname} {lastname},
+
+Un cliente nuevo se ha registrado en {shop_name} a través de OAuth 2.0 Cliente de Inicio de Sesión Único.
+
+Detalles del cliente:
+
+Identificador: {identifier}
+Nombre: {user_first_name}
+Apellidos: {user_last_name}
+Correo Electrónico: {user_email}
+Proveedor: {provider}
+
+{shop_url} powered by PrestaShop™

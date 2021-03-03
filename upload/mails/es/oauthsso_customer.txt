@@ -1,0 +1,25 @@
+Hola {firstname} {lastname},
+
+Tus credenciales para {shop_name}
+
+Gracias por haber creado una cuenta de cliente en {shop_name}.
+
+Puedes iniciar sesión en la tienda con tu cuenta de Inicio de Sesión Único:
+
+Proveedor:  {identity_provider}
+
+Alternativamente puedes usar estas credenciales:
+
+Correo electrónico: {email} 
+Contraseña: {passwd}
+
+Consejos de Seguridad Importantes:
+
+1. Guarda tus credenciales de forma segura.
+2. Nunca desveles tus credenciales. A nadie. 
+3. Cambia tu contraseña de forma regular.
+4. Si sospechas que alguien puede estar haciendo un uso indebido de tu cuenta, repórtanoslo de forma inmediata.
+
+Ya puedes realizar pedidos en nuestra tienda: {shop_name}.
+
+{shop_url} powered by PrestaShop™

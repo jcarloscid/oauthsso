@@ -1,0 +1,98 @@
+/* ********************* Boxes */
+.oasso_box {
+  border: 1px solid #E6DB55;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  background-color: #FFFFE0;
+}
+
+.oasso_box .button {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.oasso_box_title {
+  border-bottom: 1px solid #E6DB55;
+  font-weight: bold;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+/* ********************* Messages */
+.oasso_message {
+  font-size: 1.1em;
+}
+
+.oasso_error_message {
+  color: red;
+  background: url("../img/status_error.png") no-repeat scroll 0 50% transparent;
+  padding-left: 25px;
+  font-weight: bold;
+}
+
+.oasso_error_message,.oasso_error_message a {
+  color: red;
+  font-weight: bold;
+}
+
+.oasso_error_message a {
+  text-decoration: underline !important;
+}
+
+.oasso_working_message {
+  color: blue;
+  background: url("../img/status_loading.gif") no-repeat scroll 0 50% transparent;
+  padding-left: 25px;
+  font-weight: bold;
+}
+
+.oasso_error_message a:hover {
+  color: #C70000;
+  text-decoration: none !important;
+}
+
+.oasso_success_message {
+  color: green;
+  background: url("../img/status_ok.png") no-repeat scroll 0 50% transparent;
+  padding-left: 25px;
+  font-weight: bold;
+}
+
+/* ********************* Notices */
+.oasso_notice {
+  padding: 0 0 20px;
+}
+
+.oasso_notice a {
+  color: blue;
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+
+.oasso_notice a:hover {
+  text-decoration: none !important;
+}
+
+/* ********************* Special */
+span.oauthsso_uri {
+    border: 0px;
+    border-radius: 10px;
+    margin-left: 0.5em;
+    padding: 10px;
+    color: white;
+    background-color: #8e6eae;
+}
+
+#oauthsso_form textarea {
+  font-family: monospace;
+  color: #8e6eae;
+}
+
+/* ********************* Role Mappings */
+table.role_mappings {
+    margin: 1em 0;
+}
+
+table.role_mappings td {
+    padding-bottom: 4px;
+}
