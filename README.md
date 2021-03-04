@@ -1,4 +1,4 @@
-# OAuth 2.0 Single SignOn Client
+# PrestaShop OAuth 2.0 Single SignOn Client
 Provides a mechanism to identify users from an OAuth 2.0 Identity Server, allowing the Single SignOn of users in your entire organization.
 
 **Requires PrestaShop 1.7+**
