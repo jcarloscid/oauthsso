@@ -3,6 +3,8 @@ Provides a mechanism to identify users from an OAuth 2.0 Identity Server, allowi
 
 **Requires PrestaShop 1.7+**
 
+[More info](https://fishandbits.es/modulo-prestashop-cliente-oauth-single-signon/ "Carlos' personal blog - Spanish")
+
 ## Features
 
 * Implements OAuth 2.0 client protocol.
