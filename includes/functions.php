@@ -843,30 +843,39 @@ class OAuthSSOHelper {
    * Returns the signon URI
    */
   public static function get_signon_uri($include_return_to_param = false, $remove_oauth_params = true) {
+    $context = Context::getContext();
+
     // Current URL
     $current_url = self::get_current_url();
 
+    // Break up url
+    list($url_part, $query_part) = array_pad(explode('?', $current_url), 2, '');
+    parse_str($query_part, $query_vars);
+
     // Remove oauth parameters?
     if ($remove_oauth_params) {
-      if (strpos($current_url, 'auth') !== false) {
-        //Break up url
-        list($url_part, $query_part) = array_pad(explode('?', $current_url), 2, '');
-        parse_str($query_part, $query_vars);
+      // Parameters to remove
+      $params = array('auth', 'code', 'state');
 
-        // Parameters to remove
-        $params = array('auth', 'code', 'state');
-
-        // Remove params if present on current query string
-        foreach($params as $param) {
-          if (is_array($query_vars) && isset($query_vars[$param])) {
-            unset($query_vars[$param]);
-          }
+      // Remove params if present on current query string
+      foreach($params as $param) {
+        if (is_array($query_vars) && isset($query_vars[$param])) {
+          unset($query_vars[$param]);
         }
-
-        // Build new url
-        $current_url = $url_part . ((is_array($query_vars) && count($query_vars) > 0) ? ('?' . http_build_query($query_vars)) : '');
       }
     }
+
+    // Resolve back parameter to prevent ERR_TO_MANY_REDIRECTS error
+    if (is_array($query_vars) && isset($query_vars['back'])) {
+      $url_part = $context->link->getPageLink($query_vars['back'], true);
+      unset($query_vars['back']);
+
+      // Prevent chromium browsers using cached content
+      $query_vars['nocache'] = rand();
+    }
+
+    // Build new url
+    $current_url = $url_part . ((is_array($query_vars) && count($query_vars) > 0) ? ('?' . http_build_query($query_vars)) : '');
 
     // Prevent the browser caching OAuth calls
     $params = array('nocache' => rand());
@@ -877,7 +886,7 @@ class OAuthSSOHelper {
     }
 
     // Build sigon uri
-    return Context::getContext()->link->getModuleLink('oauthsso', 'signon', $params);
+    return $context->link->getModuleLink('oauthsso', 'signon', $params);
   }
 
   /**
