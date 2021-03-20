@@ -105,6 +105,40 @@ class OAuthSSOHelper {
     return false;
   }
 
+  public static function update_user_data($id_customer, $data) {
+    // Allow some variants
+    $first_name = trim(empty($data['user_first_name']) ? $data['first_name'] : $data['user_first_name']);
+    $last_name  = trim(empty($data['user_last_name'])  ? $data['last_name']  : $data['user_last_name']);
+    $email      = trim($data['user_email']);
+
+    $result  = false;
+    $sql_set = '';
+
+    // Update non empty fields
+    if ( !empty($first_name) ) {
+      $sql_set .= " `firstname` = '" . pSQL($first_name) . "',";
+    }
+    if ( !empty($last_name) ) {
+      $sql_set .= " `lastname` = '" . pSQL($last_name) . "',";
+    }
+    if ( !empty($email) ) {
+      $sql_set .= " `email` = '" . pSQL($email) . "',";
+    }
+
+    // Something to update?
+    if ( !empty($sql_set) ) {
+      // Update customer record
+      $sql = "UPDATE `" . _DB_PREFIX_ . "customer`
+                 SET {$sql_set}
+                     `id_customer` = `id_customer`
+               WHERE `id_customer` = " . pSQL($id_customer);
+      $result = Db::getInstance()->execute($sql);
+    }
+
+    // Done
+    return $result;
+  }
+
   /**
    * Logs a given customer in.
    */
@@ -1308,6 +1342,9 @@ class OAuthSSOHelper {
     if (is_numeric($id_customer_tmp)) {
       // Update the identity.
       self::update_identity_logins($data['identity_token']);
+
+      // Update user data (first name, last name, email)
+      self::update_user_data($id_customer_tmp, $data);
 
       // Login this customer.
       $id_customer = $id_customer_tmp;
