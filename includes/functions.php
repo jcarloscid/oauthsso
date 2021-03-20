@@ -561,10 +561,10 @@ class OAuthSSOHelper {
    */
   public static function check_fsockopen($secure = true, $host = '') {
     if (empty($host)) $host = Configuration::get('OASSO_OAUTH_SERVER_NAME');
-    $result = self::do_fsockopen_request(($secure ? 'https' : 'http') . '://' . $host . '/ping.html');
+    $result = self::do_fsockopen_request(($secure ? 'https' : 'http') . '://' . $host . '/');
     if (is_object($result) and property_exists($result, 'http_code') and $result->http_code == 200) {
       if (property_exists($result, 'http_data')) {
-        if (strtolower($result->http_data) == 'ok') {
+        if (strlen($result->http_data) > 0) {
           return true;
         }
       }
@@ -579,10 +579,10 @@ class OAuthSSOHelper {
   public static function check_curl($secure = true, $host = '') {
     if (empty($host)) $host = Configuration::get('OASSO_OAUTH_SERVER_NAME');
     if (in_array('curl', get_loaded_extensions()) and function_exists('curl_exec')) {
-      $result = self::do_curl_request(($secure ? 'https' : 'http') . '://' . $host . '/ping.html');
+      $result = self::do_curl_request(($secure ? 'https' : 'http') . '://' . $host . '/');
       if (is_object($result) and property_exists($result, 'http_code') and $result->http_code == 200) {
         if (property_exists($result, 'http_data')) {
-          if (strtolower($result->http_data) == 'ok'){
+          if (strlen($result->http_data) > 0) {
             return true;
           }
         }
