@@ -1007,6 +1007,8 @@ class OAuthSSO extends Module {
 
     // Add the OauthSSO head.
     $smarty->assign('oasso_widget_location', 'head');
+    $smarty->assign('oasso_oauth_server_name', Configuration::get('OASSO_OAUTH_SERVER_NAME'));
+    $smarty->assign('oasso_sso_provider', html_entity_decode(Configuration::get('OASSO_PROVIDER_NAME')));
     $smarty->assign('oasso_custom_css', html_entity_decode(Configuration::get('OASSO_CUSTOM_CSS')));
 
     // Read template
