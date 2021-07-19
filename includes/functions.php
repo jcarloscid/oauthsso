@@ -1578,12 +1578,6 @@ class OAuthSSOHelper {
       throw new Exception("OAuthSSOHelper::map_user_roles() called, but roles mapping is disabled.");
     }
 
-    // Any role name to map?
-    if ( empty($roles) or !is_array($roles) or (sizeof($roles) === 0)) {
-      // User's group subscriptions unchanged
-      return false;
-    }
-
     // Get roles mapping configuration
     $mappings = Module::getInstanceByName('oauthsso')->get_roles_mappings();
 
@@ -1594,12 +1588,12 @@ class OAuthSSOHelper {
 
       // A PS user must be either a Guest or a Customer
       if ($customer->is_guest) {
-        $id_default_group = (int) Configuration::get('PS_GUEST_GROUP');
+        $set_default_group = (int) Configuration::get('PS_GUEST_GROUP');
       } else {
-        $id_default_group = (int) Configuration::get('PS_CUSTOMER_GROUP');
+        $set_default_group = (int) Configuration::get('PS_CUSTOMER_GROUP');
       }
       $customer_groups = array();
-      $additional_groups = array($id_default_group);
+      $additional_groups = array($set_default_group);
     } else {
       // Get current customer groups
       $customer_groups = $customer->getGroups();
