@@ -2,7 +2,7 @@
 <module>
 	<name>oauthsso</name>
 	<displayName><![CDATA[OAuth 2.0 Single SignOn Client]]></displayName>
-	<version><![CDATA[1.0.0]]></version>
+	<version><![CDATA[1.0.1]]></version>
 	<description><![CDATA[Provides a mechanism to identify users from an OAuth 2.0 Identity Server, allowing the Single SignOn of users in your entire organization.]]></description>
 	<author><![CDATA[Carlos Cid <carlos@fishandbits.es>]]></author>
 	<tab><![CDATA[front_office_features]]></tab>

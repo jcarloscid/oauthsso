@@ -27,7 +27,7 @@
 class OAuthSSOHelper {
 
   // User-agent string used by this module when calling the identity server
-  private const USER_AGENT = 'OauthSSO/1.0.0 PrestaShop/1.7.x.x (+http://fishandbits.es/)';
+  private const USER_AGENT = 'OAuthSSO/1.0.1 PrestaShop/1.7.x.x (+http://fishandbits.es/)';
 
   /**
    * Generate a user token out from user data.
