@@ -920,7 +920,8 @@ class OAuthSSOHelper {
     }
 
     // Build new url
-    $current_url = $url_part . ((is_array($query_vars) && count($query_vars) > 0) ? ('?' . http_build_query($query_vars)) : '');
+    $junction = (strpos($url_part, "?") === false) ? "?" : "&";
+    $current_url = $url_part . ((is_array($query_vars) && count($query_vars) > 0) ? ($junction . http_build_query($query_vars)) : '');
 
     // Prevent the browser caching OAuth calls
     $params = array('nocache' => rand());
