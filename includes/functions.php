@@ -83,7 +83,7 @@ class OAuthSSOHelper {
     // Make sure that that the customers exists.
     $sql = "SELECT *
               FROM `" . _DB_PREFIX_ . "customer`
-             WHERE `id_customer` = '" . pSQL($id_customer) . "'";
+             WHERE `id_customer` = " . pSQL($id_customer);
     $result = Db::getInstance()->GetRow($sql);
 
     // The user account has been found!
@@ -284,7 +284,7 @@ class OAuthSSOHelper {
     // Make sure that that the customers exists.
     $sql = "SELECT `id_customer`
               FROM `" . _DB_PREFIX_ . "customer`
-             WHERE `id_customer` = '" . pSQL($id_customer) . "'";
+             WHERE `id_customer` = " . pSQL($id_customer);
     $row_customer = Db::getInstance()->GetRow($sql);
 
     // The user account has been found!
@@ -517,7 +517,7 @@ class OAuthSSOHelper {
       // Check if the user account exists.
       $sql = "SELECT `id_customer`
                 FROM `" . _DB_PREFIX_ . "customer`
-               WHERE `id_customer` = '" . pSQL($id_customer) . "'";
+               WHERE `id_customer` = " . pSQL($id_customer);
       $row_customer = Db::getInstance()->GetRow($sql);
 
       // The user account exists, return it's identifier.
