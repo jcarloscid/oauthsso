@@ -207,6 +207,10 @@ class OAuthSSOHelper {
     if (is_array($data) && !empty($data['user_token']) && !empty($data['identity_token'])) {
       $password = Tools::passwdGen();
 
+      // Prestashop first and last names are restricted to some characters.
+      $data['user_first_name'] = preg_replace("/[^A-Za-z0-9 ]/", "", $data['user_first_name']);
+      $data['user_last_name'] = preg_replace("/[^A-Za-z0-9 ]/", "", $data['user_last_name']);
+
       // Build customer fields.
       $customer = new CustomerCore();
       $customer->firstname = empty($data['user_first_name']) ? '' : $data['user_first_name'];
@@ -245,7 +249,14 @@ class OAuthSSOHelper {
       }
 
       // Create a new user account.
-      if ($customer->add()) {
+      try {
+        $add_result = $customer->add();
+      } catch(Exception $ex) {
+        $add_result = false;
+        error_log("create_customer_from_data() Exception: " . $ex->getMessage());
+      }
+
+      if ($add_result) {
         // Tie the tokens to the newly created member.
         if (self::link_tokens_to_id_customer($customer->id, $data['user_token'], $data['identity_token'], $data['identity_provider'])) {
           // Send an email to the customer.
